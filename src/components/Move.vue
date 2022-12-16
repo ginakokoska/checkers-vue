@@ -3,7 +3,7 @@
     <label for="text-input"> </label>
     <input type="text" class="form-control" id="text-input" placeholder="Enter your move like 'XX YY'" onFocus="this.placeholder = ''" input-focus-border-color="#99999">
     <div style="padding:20px"></div>
-    <button @click="$root.jsMove()" type="button" class="btn bouncy"> Enter</button>
+    <button @click="jsMove()" type="button" class="btn bouncy"> Enter</button>
     <p id="message-field"></p>
   </div>
 </template>
@@ -18,76 +18,8 @@ export default {
   name: 'Move',
   mixins: [websocketsmixins],
   methods: {
-    connectWebSocket() {
-      this.vueWebsocket.onopen = (event) => {
-        this.vueWebsocket.send("Connect to server");
-        console.log("connecting to server")
-      }
-
-      this.vueWebsocket.onclose = (event) => {
-        this.vueWebsocket.send("reset", "")
-      };
-
-      this.vueWebsocket.onerror = (event) => {
-      };
-
-      this.vueWebsocket.onmessage = (event) => {
-        if (typeof event.data === "string") {
-          this.data = JSON.parse(event.data)
-          if (this.data.reset === 1) {
-          }
-        }
-        this.game = this.data.game
-        this.gameBoard = this.data.game.gameBoard
-        this.size = this.data.game.gameBoard.size
-        // TODO: HERE IDK gameoboard, site etc ?
-        this.checkWin()
-        this.updateGameBoard()
-      };
-    },
-    processCmdWS(cmd, data) {
-      this.vueWebsocket.send(cmd + "|" + data + "|")
-    },
-    processCommand(cmd, returnData) {
-      this.post("POST", "/command", {"cmd": cmd, "data": returnData}, cmd).then(() => {
-      })
-    },
-    post(method, url, returnData, cmd)
-    {
-      return $.ajax({
-        method: method,
-        url: url,
-        data: JSON.stringify(returnData),
-        dataType: "json",
-        contentType: "application/json",
-
-        success: function (response) {
-          this.data = response;
-        },
-        error: function (response) {
-          console.log("Error")
-          console.error(response);
-        }
-      });
-    },
-    checkWin() {
-      let gamestate = this.data.game.gameState
-      if (gamestate in ["BLACK_WON", "WHITE_WON"]) {
-        let winner = (gamestate === "WHITE_WON" ? "White" : "Black")
-        swal({
-          icon: "info",
-          text: winner + " has won the game.",
-          title: "Title"
-        })
-      }
-
-    },
-    newBoard(num) {
-      this.processCmdWS("newBoard", num)
-    },
     jsMove() {
       let mv = $('#text-input').val();
-      console.log(mv)
       this.processCmdWS("jsMove", mv)
     },
     updateGameBoard() {

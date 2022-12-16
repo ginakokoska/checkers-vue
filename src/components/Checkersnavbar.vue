@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost:9000/"> <i class="fa-solid fa-chess"></i> Checkers</a>
+    <a class="navbar-brand" :href="homepagelink"> <i class="fa-solid fa-chess"></i> Checkers</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,13 +13,13 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" :href="homeLink"> <i class="fa-solid fa-igloo"></i> Home</a>
+            <a class="nav-link" aria-current="page" :href="homepagelink"> <i class="fa-solid fa-igloo"></i> Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/ginakokoska/Checkers_WA"> <i class="fa-brands fa-github-alt"></i> GitHub</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" @click="$root.newBoard(8)"><i class="fa-solid fa-chess-queen"></i> 8x8</a>
+              <a class="nav-link" href="#" @click="newBoard(8)"><i class="fa-solid fa-chess-queen"></i> 8x8</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="#" @click="$root.newBoard(10)"><i class="fa-regular fa-chess-queen"></i> 10x10</a>
@@ -42,8 +42,13 @@ export default {
   data() {
     return {
       homepagelink: "/",
-      instructlink: "/instructions",
-      checkerslink: "/checkers"
+      instructlink: "/instructions"
+    }
+  },
+  mixins: [websocketsmixins],
+  methods: {
+    newBoard(num) {
+      this.processCmdWS("newBoard", num)
     }
   }
 }

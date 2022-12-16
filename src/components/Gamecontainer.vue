@@ -1,16 +1,16 @@
 <template>
   <div class="gamecontainer" id="gamecontainer">
     <div class="game">
-      <li v-for="i in $root.size">
+      <li v-for="i in 8" :key="i">
         <div class="fieldrow">
-          <li v-for="j in $root.size">
-            <div class="field" id="field{{i}}*$root.size+{{j}}">
-              <img class="img" id="scalar{{i}}*$root.size+{{j}}" alt=""/>
-            </div>
-          </li>
+      <li v-for="j in 8" :key="j">
+        <div class="field" id="field{{i}}*$root.size+{{j}}">
+          <img class="img" id="scalar{{i}}*$root.size+{{j}}" alt="">
         </div>
       </li>
     </div>
+    </li>
+  </div>
   </div>
 </template>
 

@@ -17,17 +17,22 @@ export const websocketsmixins = {
                 console.log("connecting to server")
             }
 
-            this.vueWebsocket.onclose = (event) => {
+            this.vueWebsocket.onclose = () => {
                 this.vueWebsocket.send("reset", "")
             };
 
-            this.vueWebsocket.onerror = (event) => {
+            this.vueWebsocket.onerror = () => {
             };
 
             this.vueWebsocket.onmessage = (event) => {
                 if (typeof event.data === "string") {
                     this.data = JSON.parse(event.data)
                     if (this.data.reset === 1) {
+                        swal({
+                            icon: "warning",
+                            text: "Game has been reset!",
+                            title: "Error!"
+                        })
                     }
                 }
                 this.game = this.data.game
