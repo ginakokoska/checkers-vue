@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Homepage from "@/views/Homepage";
-import Instructions from "@/views/Instructions";
+import Homepage from "@/views/Homepage.vue";
+import Instructions from "@/views/Instructions.vue";
+import Checkers from "@/views/Checkers.vue";
 
 
 const routes = [

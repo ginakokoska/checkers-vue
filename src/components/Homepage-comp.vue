@@ -1,50 +1,50 @@
 <template>
-  <div style="padding:100px">
-    <h1>Welcome to Checkers</h1>
-    <div style="padding:80px">
-      <div class="container" align="center">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 3"></button>
-          </div>
+  <div style="padding:100px"></div>
+  <h1>Welcome to Checkers</h1>
+  <div style="padding:80px"></div>
+  <div class="container" align="center">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 3"></button>
+      </div>
 
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src=@routes.Assets.versioned("images/Startpoint.png") class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src=@routes.Assets.versioned("images/movediag.png") class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src=@routes.Assets.versioned("images/capture.png") class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-              <img src=@routes.Assets.versioned("images/queen.png") class="d-block w-100">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../assets/images/Startpoint.png" class="d-block w-100">
         </div>
-
+        <div class="carousel-item">
+          <img src="../assets/images/movediag.png" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="../assets/images/capture.png" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="../assets/images/queen.png" class="d-block w-100">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Homepage-comp',
+  name: 'homepage-comp',
   components: {}
 }
 </script>
 
-<style>
+<style lang="less">
 
 .carousel {
   position: relative;

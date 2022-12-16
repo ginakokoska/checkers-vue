@@ -1,13 +1,15 @@
 <template>
-  <Checkersnavbar></Checkersnavbar>
-  <InstructionsComp></InstructionsComp>
+  <nav-bar></nav-bar>
+  <instructions-comp></instructions-comp>
 </template>
 
 <script>
-import Checkersnavbar from "@/components/Checkersnavbar";
 import InstructionsComp from "@/components/Instructions-comp";
+import NavBar from "@/components/Navbar.vue";
+
 export default {
-  components: {InstructionsComp, Checkersnavbar}
+  name: "Instructions-view",
+  components: {NavBar, InstructionsComp}
 }
 </script>
 

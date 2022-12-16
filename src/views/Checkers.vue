@@ -1,15 +1,17 @@
 <template>
-  <Checkersnavbar></Checkersnavbar>
-  <Gamecontainer></Gamecontainer>
-  <Move></Move>
+  <checkers-navbar></checkers-navbar>
+  <game-container></game-container>
+  <move-comp></move-comp>
 </template>
+
 <script>
-import Checkersnavbar from "@/components/Checkersnavbar";
-import Gamecontainer from "@/components/Gamecontainer";
-import Move from "@/components/Move";
+import CheckersNavbar from "@/components/Checkersnavbar.vue";
+import GameContainer from "@/components/Gamecontainer.vue";
+import MoveComp from "@/components/Move.vue";
 
 export default {
-  components: {Move, Gamecontainer, Checkersnavbar}
+  name: 'Checkers-view',
+  components: {CheckersNavbar, GameContainer, MoveComp}
 }
 </script>
 

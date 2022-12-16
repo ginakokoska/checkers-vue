@@ -22,10 +22,10 @@
               <a class="nav-link" href="#" @click="newBoard(8)"><i class="fa-solid fa-chess-queen"></i> 8x8</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" @click="$root.newBoard(10)"><i class="fa-regular fa-chess-queen"></i> 10x10</a>
+              <a class="nav-link" href="#" @click="newBoard(10)"><i class="fa-regular fa-chess-queen"></i> 10x10</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" :href="instructionsLink"> <i class="fa-solid fa-clipboard-list"></i> User Manual</a>
+              <a class="nav-link" :href="instructlink"> <i class="fa-solid fa-clipboard-list"></i> User Manual</a>
           </li>
         </ul>
       </div>
@@ -37,8 +37,10 @@
 
 <script>
 
+import {websocketsmixins} from "@/mixins/websocketsmixins";
+
 export default {
-  name: 'Checkersnavbar',
+  name: 'checkers-navbar',
   data() {
     return {
       homepagelink: "/",
@@ -52,6 +54,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="less">

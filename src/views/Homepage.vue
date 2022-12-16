@@ -1,14 +1,15 @@
 <template>
-  <Checkersnavbar></Checkersnavbar>
-  <HomepageComp></HomepageComp>
+ <nav-bar></nav-bar>
+  <homepage-comp></homepage-comp>
 </template>
 
 <script>
-import Checkersnavbar from "@/components/Checkersnavbar";
-import HomepageComp from "@/components/Homepage-comp";
+import NavBar from "@/components/Navbar.vue";
+import HomepageComp from "@/components/Homepage-comp.vue";
 
 export default {
-  components: {HomepageComp, Homepage, Checkersnavbar}
+  name: 'home-page',
+  components: {NavBar, HomepageComp}
 }
 </script>
 

@@ -16,20 +16,24 @@
 
 
 <script>
-import Vue from 'vue'
+
 import {websocketsmixins} from "@/mixins/websocketsmixins";
+import Move from "@/components/Move.vue";
 
 export default {
-  name: 'Gamecontainer',
+  name: 'game-container',
+  methods: {
+    Move() {
+      return Move
+    }
+  },
   components: {},
   mixins: [websocketsmixins]
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #gamecontainer {
-
-
 
 @darkred: #641403;
 @darkgrey:#333;

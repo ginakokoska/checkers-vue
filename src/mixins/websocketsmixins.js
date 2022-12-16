@@ -1,4 +1,5 @@
 import $ from "jquery";
+import * as swal from "vue-sweetalert2";
 
 export const websocketsmixins = {
     data: function () {
@@ -12,7 +13,8 @@ export const websocketsmixins = {
     },
     methods: {
         connectWebSocket() {
-            this.vueWebsocket.onopen = (event) => {
+
+            this.vueWebsocket.onopen = () => {
                 this.vueWebsocket.send("Connect to server");
                 console.log("connecting to server")
             }
@@ -24,7 +26,7 @@ export const websocketsmixins = {
             this.vueWebsocket.onerror = () => {
             };
 
-            this.vueWebsocket.onmessage = (event) => {
+            this.vueWebsocket.onmessage = () => {
                 if (typeof event.data === "string") {
                     this.data = JSON.parse(event.data)
                     if (this.data.reset === 1) {
@@ -50,7 +52,7 @@ export const websocketsmixins = {
             this.post("POST", "/command", {"cmd": cmd, "data": returnData}, cmd).then(() => {
             })
         },
-        post(method, url, returnData, cmd)
+        post(method, url, returnData)
         {
             return $.ajax({
                 method: method,
