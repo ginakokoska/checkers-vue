@@ -4,7 +4,7 @@ import * as swal from "vue-sweetalert2";
 export const websocketsmixins = {
     data: function () {
         return {
-            vueWebsocket: new WebSocket("ws://" + location.hostname + ":9000/websocket"),
+            vueWebsocket: Object,
             data: {},
             game: {"gameState": "WHITE_TURN", "gameBoard":{"size": 8, "fields":[]}},
             gameBoard: "",
@@ -13,7 +13,7 @@ export const websocketsmixins = {
     },
     methods: {
         connectWebSocket() {
-
+            this.vueWebsocket = new WebSocket("ws://" + location.hostname + ":8080/websocket")
             this.vueWebsocket.onopen = () => {
                 this.vueWebsocket.send("Connect to server");
                 console.log("connecting to server")
@@ -40,7 +40,7 @@ export const websocketsmixins = {
                 this.game = this.data.game
                 this.gameBoard = this.data.game.gameBoard
                 this.size = this.data.game.gameBoard.size
-                // TODO: HERE IDK gameoboard, site etc ?
+                // TODO: HERE IDK gameboard, site etc ?
                 this.checkWin()
                 this.updateGameBoard()
             };

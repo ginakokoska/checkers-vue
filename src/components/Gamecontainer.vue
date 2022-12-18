@@ -1,18 +1,35 @@
+<!--<template>-->
+<!--  <div class="gamecontainer" id="gamecontainer">-->
+<!--    <div class="game">-->
+<!--      <li v-for="i in 8" :key="i">-->
+<!--        <div class="fieldrow">-->
+<!--      <li v-for="j in 8" :key="j">-->
+<!--        <div class="field" id="field{{i}}*$root.size+{{j}}">-->
+<!--          <img class="img" id="scalar{{i}}*$root.size+{{j}}" alt="">-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </div>-->
+<!--    </li>-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</template>-->
+
+
+
+
+
 <template>
   <div class="gamecontainer" id="gamecontainer">
     <div class="game">
-      <li v-for="i in 8" :key="i">
-        <div class="fieldrow">
-      <li v-for="j in 8" :key="j">
-        <div class="field" id="field{{i}}*$root.size+{{j}}">
-          <img class="img" id="scalar{{i}}*$root.size+{{j}}" alt="">
+      <div v-for="i in 8" :key="i" class="fieldrow">
+        <div v-for="j in 8" :key="j" class="field" v-bind:id="'field'+((i*8+j)-(8+1))">
+          <img class="img" v-bind:id="'scalar'+((i*8+j)-(8+1))" alt="">
         </div>
-      </li>
+      </div>
     </div>
-    </li>
-  </div>
   </div>
 </template>
+
 
 
 <script>
