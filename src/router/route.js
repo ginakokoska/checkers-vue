@@ -16,12 +16,12 @@ const routes = [
         component: Instructions
     },
     {
-        path: '/new10Grid',
+        path: '/new8Grid',
         name: 'Checkers8',
         component: Checkers
     },
     {
-        path: '/new8Grid',
+        path: '/new10Grid',
         name: 'Checkers10',
         component: Checkers
     },

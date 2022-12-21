@@ -9,6 +9,8 @@ export const websocketsmixins = {
             game: {"gameState": "WHITE_TURN", "gameBoard":{"size": 8, "fields":[]}},
             gameBoard: "",
             size: 8,
+            color: "",
+            connected: false
         }
     },
     methods: {
@@ -140,15 +142,15 @@ export const websocketsmixins = {
 
                     switch (state) {
                         case "normal":
-                            newContent += '<img class="img" src="/assets/images/' + color + '.png" alt=""/>';
+                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/' + color + '.png" alt=""/>';
                             newContent += '</div>';
                             break;
                         case "queen":
-                            newContent += '<img class="img" src="/assets/images/' + color + '_queen.png" alt=""/>';
+                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/' + color + '_queen.png" alt=""/>';
                             newContent += '</div>';
                             break;
                         default:
-                            newContent += '<img class="img" src="/assets/images/empty.png" alt=""/>';
+                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/empty.png" alt=""/>';
                             newContent += '</div>';
                             break;
                     }
@@ -169,7 +171,6 @@ export const websocketsmixins = {
                 url: "http://localhost:9000/current",
                 crossDomain: true,
                 dataType: "json",
-
                 success: function (response) {
                     that.data = response;
                     that.size = response.game.gameBoard.size;
@@ -205,7 +206,7 @@ export const websocketsmixins = {
 
                     switch (state) {
                         case "normal":
-                            newContent += '<img class="img" src="/assets/images/' + color + '.png" alt=""/>';
+                            newContent += '<img class="img" src="./images/' + color + '.png" alt=""/>';
                             newContent += '</div>';
                             break;
                         case "queen":
@@ -226,7 +227,6 @@ export const websocketsmixins = {
             newGame.html(newContent);
 
         }
-
 
     }
 

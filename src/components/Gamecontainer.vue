@@ -16,8 +16,6 @@
 
 
 
-
-
 <!--<template>-->
 <!--  <div class="gamecontainer" id="gamecontainer">-->
 <!--    <div class="game">-->
@@ -50,23 +48,23 @@
 
 <script>
 
-import {websocketsmixins} from "@/mixins/websocketsmixins";
-import Move from "@/components/Move.vue";
+//import {websocketsmixins} from "@/mixins/websocketsmixins";
+
 
 export default {
-  name: 'game-container',
-  methods: {
-    Move() {
-      return Move
-    }
+  name: "game-container",
+  created() {
+    //this.gotData();
+    //this.resize(8);
   },
-  components: {},
-  mixins: [websocketsmixins]
-}
+  //mixins: [websocketsmixins]
+};
 </script>
 
 <style lang="less">
-#gamecontainer {
+
+
+
 
 @darkred: #641403;
 @darkgrey:#333;
@@ -98,121 +96,14 @@ export default {
   }
 
 
-.field_black {
-    display: inline-block;
-    float:left;
-    border-style: outset;
-    border-width: 0em;
-    background-color: #222;
-    border-color: black;
-    width: 1.2em;
-    height: 1.2em;
-    margin: 0.1em;
-    text-align: center;
-}
 
 .img {
     width: 100%;
     height: 100%;
 }
 
-.field_red {
-    display: inline-block;
-    float:left;
-    border-style: outset;
-    border-width: 0em;
-    background-color: @darkred;
-    border-color: black;
-    width: 1.2em;
-    height: 1.2em;
-    margin: 0.1em;
-    text-align: center;
-}
 
-.piece_black {
-    width: 100%;
-    height: 100%;
-    color: black;
-    line-height: 55px;
-    padding-left: 0.5px;
-    padding-top: 0.2px;
-    font-size: 60px;
-    -webkit-text-stroke: 0.4px @lightgrey;
-}
 
-.piece_white {
-    width: 100%;
-    height: 100%;
-    color: @lightgrey;
-    line-height: 55px;
-    padding-left: 0.5px;
-    padding-top: 0.2px;
-    font-size: 60px;
-    -webkit-text-stroke: 1.5px #000000;
-}
-
-.piece_was_never_an_option {
-    width: 100%;
-    height: 100%;
-}
-
-.abc-navigation {
-    height: 100%;
-    width: 100%;
-    margin: 1em;
-    display:flex;
-    font-size: 40px;
-    font-family: "Rockwell";
-    font-weight: 500;
-    color:@lightgrey;
-}
-
-.field_row {
-    display: inline-block;
-    float:left;
-    border-style: outset;
-    border-width: 0em;
-    background-color: @lightgrey;
-    border-color: black;
-    width: 1.2em;
-    height: 1.2em;
-    margin: 0.1em;
-    text-align: center;
-
-}
-
-.field_col {
-    display: inline-block;
-    float:left;
-    border-style: outset;
-    border-width: 0em;
-    background-color: @lightgrey;
-    border-color: black;
-    width: 9.6em;
-    height:  9.6em;
-    margin: 0.1em;
-    text-align: center;
-
-}
-
-.game_gitter {
-    border-style: inset;
-    border-width: 0.05em;
-    border-spacing: 0px;
-    border-color: black;
-    background-color: black;
-    padding: 0.05em;
-    margin:auto;
-    width: auto;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: [first] auto [line2] auto [line3] auto [line4] auto [line5] auto [line6] auto [line7] auto [end] auto ;
-    grid-template-rows: [first] auto [row2] auto [row3] auto [row4] auto [row5] auto [row6] auto [row7] auto [end] auto ;
-    background-color: #2196F3;
-    padding: 10px;
-}
 
 .item {
   background-color: rgba(255, 255, 255, 0.8);
@@ -288,5 +179,5 @@ btn:hover{
 
 
 
-}
+
 </style>

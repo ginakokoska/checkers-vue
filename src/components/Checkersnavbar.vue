@@ -37,7 +37,8 @@
 
 <script>
 
-import {websocketsmixins} from "@/mixins/websocketsmixins";
+//import {websocketsmixins} from "@/mixins/websocketsmixins";
+import * as swal from "sweetalert2";
 
 export default {
   name: 'checkers-navbar',
@@ -91,6 +92,15 @@ export default {
 <style lang="less">
 @whitegrey: #f1f1f1;
 @darkred: #641403;
+
+.swal2-popup {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.no-border {
+  border: 0 !important;
+}
 
 h5 {
     font-size: 35px;
