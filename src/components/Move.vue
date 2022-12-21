@@ -3,7 +3,7 @@
     <label for="text-input"> </label>
     <input type="text" class="form-control" id="text-input" placeholder="Enter your move like 'XX YY'" onFocus="this.placeholder = ''" input-focus-border-color="#99999">
     <div style="padding:20px"></div>
-    <button @click="jsMove()" type="button" class="btn bouncy"> Enter</button>
+    <button @click="parentMethod()" type="button" class="btn bouncy"> Enter</button>
     <p id="message-field"></p>
   </div>
 </template>
