@@ -16,13 +16,13 @@
           <img src="../assets/images/Startpoint.png" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img src="../assets/images/movediag.png" class="d-block w-100">
+          <img src="../../public/images/movediag.png" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img src="../assets/images/capture.png" class="d-block w-100">
+          <img src="../../public/images/capture.png" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img src="../assets/images/queen.png" class="d-block w-100">
+          <img src="../../public/images/queen.png" class="d-block w-100">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

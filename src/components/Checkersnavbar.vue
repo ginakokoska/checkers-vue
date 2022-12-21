@@ -19,10 +19,10 @@
             <a class="nav-link" href="https://github.com/ginakokoska/Checkers_WA"> <i class="fa-brands fa-github-alt"></i> GitHub</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" @click="newBoard(8)"><i class="fa-solid fa-chess-queen"></i> 8x8</a>
+              <a class="nav-link" href="#" @click="resizeBoard(8)"><i class="fa-solid fa-chess-queen"></i> 8x8</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" @click="newBoard(10)"><i class="fa-regular fa-chess-queen"></i> 10x10</a>
+              <a class="nav-link" href="#" @click="resizeBoard(10)"><i class="fa-regular fa-chess-queen"></i> 10x10</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" :href="instructlink"> <i class="fa-solid fa-clipboard-list"></i> User Manual</a>
@@ -47,12 +47,43 @@ export default {
       instructlink: "/instructions"
     }
   },
-  mixins: [websocketsmixins],
+  props: {
+    method: { type: Function },
+  },
   methods: {
-    newBoard(num) {
-      this.processCmdWS("newBoard", num)
-    }
-  }
+    resizeBoard(num) {
+      swal.fire({
+        title: "Unhappy with your size?",
+        html: "(This will restart the game)",
+        showCancelButton: true,
+        confirmButtonText: 'Continue',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: "#641403",
+        background: '#FFFFFF',
+        //iconHtml: '<img src="./images/frog.png"',
+        imageUrl: "./images/unturned.png",
+        imageWidth: 100,
+        imageHeight: 100,
+        customClass: {
+          icon: 'no-border'
+        }
+
+
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.parentMethod(num)
+        }
+      })
+    },
+    parentMethod(p) {
+      this.method(p);
+    },
+  },
+  created() {
+    //this.gotData();
+    //this.connectWebSocket();
+    //this.updateGameBoard();
+  },
 }
 
 </script>

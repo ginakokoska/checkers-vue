@@ -18,17 +18,33 @@
 
 
 
+<!--<template>-->
+<!--  <div class="gamecontainer" id="gamecontainer">-->
+<!--    <div class="game">-->
+<!--      <div v-for="i in 8" :key="i" class="fieldrow">-->
+<!--        <div v-for="j in 8" :key="j" class="field" v-bind:id="'field'+((i*8+j)-(8+1))">-->
+<!--          <img class="img" v-bind:id="'scalar'+((i*8+j)-(8+1))" alt="">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</template>-->
+
+
+
+
 <template>
   <div class="gamecontainer" id="gamecontainer">
     <div class="game">
-      <div v-for="i in 8" :key="i" class="fieldrow">
-        <div v-for="j in 8" :key="j" class="field" v-bind:id="'field'+((i*8+j)-(8+1))">
-          <img class="img" v-bind:id="'scalar'+((i*8+j)-(8+1))" alt="">
+      <div v-for="row in 10" :key="row" class="fieldrow">
+        <div v-for="column in 10" :key="column" class="field" :id="'field' + (column + (row - 1) * 10)">
+          <img :id="'scalar' + (column + (row - 1) * 10)" class="img" />
         </div>
       </div>
     </div>
   </div>
 </template>
+
 
 
 
@@ -59,33 +75,27 @@ export default {
 
 
 .gamecontainer {
-    padding-top: 4%;
-    margin: 1em;
-    display:flex;
-    font-size: 40px;
-    font-family: "Rockwell";
-    font-weight: 500;
-    color:black;
-}
-
-.game {
-    border-style: solid;
-    border-width: 0.15em;
-    border-spacing: 0px;
-    border-color: #222222;
-    background-color: #222222;
-    margin:auto;
-    width: auto;
-}
-
-.field {
-    display: inline-block;
-    float:left;
-    background-color: @darkred;
-    width: 1.2em;
-    height: 1.2em;
+    margin:0;
+    padding:0;
+    display: flex;
+    position: relative;
+    justify-content: center;
     text-align: center;
 }
+
+
+  .game {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+
+
+  .field {
+    flex: 1 0 calc(100% / var(--num-fields));
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
 
 
 .field_black {

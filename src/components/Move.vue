@@ -10,21 +10,24 @@
 
 
 <script>
-import $ from "jquery";
+//import $ from "jquery";
 import {websocketsmixins} from "@/mixins/websocketsmixins";
 
 export default {
   name: 'move-comp',
   mixins: [websocketsmixins],
+  props: {
+    method: { type: Function },
+  },
   methods: {
-    jsMove() {
-      let mv = $('#text-input').val();
-      this.processCmdWS("jsMove", mv)
+    parentMethod() {
+      this.method();
     },
-    created() {
-      this.gotData();
-      this.connectWebSocket();
-    }
+  },
+  created() {
+    //this.gotData();
+    //this.connectWebSocket();
+    //this.resize(8);
   }
 }
 

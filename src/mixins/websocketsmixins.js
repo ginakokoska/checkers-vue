@@ -13,10 +13,9 @@ export const websocketsmixins = {
     },
     methods: {
         connectWebSocket() {
-            this.vueWebsocket = new WebSocket("ws://" + location.hostname + ":8080/websocket")
+            this.vueWebsocket = new WebSocket("ws://" + location.hostname + ":9000/websocket") // change location.hostname to backend ip
             this.vueWebsocket.onopen = () => {
-                this.vueWebsocket.send("Connect to server");
-                console.log("connecting to server")
+                this.vueWebsocket.send("Connect")
             }
 
             this.vueWebsocket.onclose = () => {
@@ -26,7 +25,8 @@ export const websocketsmixins = {
             this.vueWebsocket.onerror = () => {
             };
 
-            this.vueWebsocket.onmessage = () => {
+            this.vueWebsocket.onmessage = (event) => {
+                console.log("onmessage")
                 if (typeof event.data === "string") {
                     this.data = JSON.parse(event.data)
                     if (this.data.reset === 1) {
@@ -37,6 +37,21 @@ export const websocketsmixins = {
                         })
                     }
                 }
+                if (!this.connected && this.data.game.playerCount === 0) {
+                    this.connectPlayer()
+                    this.connected = true
+                    this.color = "White"
+                    console.log(this.color)
+                } else if (!this.connected && this.data.game.playerCount === 1) {
+                    this.connectPlayer()
+                    this.connected = true
+                    this.color = "Black"
+                    console.log(this.color)
+                } else {
+                    this.connected = true
+                    console.log("already too many players")
+                }
+                console.log("pc: ", this.data.game.playerCount)
                 this.game = this.data.game
                 this.gameBoard = this.data.game.gameBoard
                 this.size = this.data.game.gameBoard.size
@@ -45,8 +60,12 @@ export const websocketsmixins = {
                 this.updateGameBoard()
             };
         },
+        resize(s) {
+            this.processCmdWS("newBoard", s)
+        },
         processCmdWS(cmd, data) {
-            this.vueWebsocket.send(cmd + "|" + data + "|")
+            this.vueWebsocket.send(cmd + "|" + data)
+            console.log("processCmd: " + cmd + "|" + data)
         },
         processCommand(cmd, returnData) {
             this.post("POST", "/command", {"cmd": cmd, "data": returnData}, cmd).then(() => {
@@ -87,11 +106,18 @@ export const websocketsmixins = {
         },
         jsMove() {
             let mv = $('#text-input').val();
+            mv += (" " + this.color)
             console.log(mv)
             this.processCmdWS("jsMove", mv)
         },
+        connectPlayer() {
+            this.processCmdWS("connectPlayer", "x")
+            console.log("connectPlayer")
+        },
         updateGameBoard() {
             this.size = this.data.game.gameBoard.size;
+            console.log("update")
+            console.log(this.data.game.gameBoard.size);
             let newGame = $('#gamecontainer');
             newGame.html('');
             let newContent = '';
@@ -107,7 +133,7 @@ export const websocketsmixins = {
                         newContent += '<div class="field" style="background-color: #000000">';
                     }
 
-                    let scalar = row*this.size+col;
+                    let scalar = col*this.size+row;
 
                     let color = this.data.game.gameBoard.fields[scalar].field.piece.color;
                     let state = this.data.game.gameBoard.fields[scalar].field.piece.state;
@@ -140,7 +166,8 @@ export const websocketsmixins = {
             let that = this;
             return $.ajax({
                 method: "GET",
-                url: "/current",
+                url: "http://localhost:9000/current",
+                crossDomain: true,
                 dataType: "json",
 
                 success: function (response) {
@@ -172,7 +199,7 @@ export const websocketsmixins = {
                         newContent += '<div class="field" style="background-color: #000000">';
                     }
 
-                    let scalar = row*this.size+col;
+                    let scalar = col*this.size+row;
                     let color = this.data.game.gameBoard.fields[scalar].field.piece.color;
                     let state = this.data.game.gameBoard.fields[scalar].field.piece.state;
 
@@ -182,11 +209,11 @@ export const websocketsmixins = {
                             newContent += '</div>';
                             break;
                         case "queen":
-                            newContent += '<img class="img" src="/assets/images/' + color + '_queen.png" alt=""/>';
+                            newContent += '<img class="img" src="./images/' + color + '_queen.png" alt=""/>';
                             newContent += '</div>';
                             break;
                         default:
-                            newContent += '<img class="img" src="/assets/images/empty.png" alt=""/>';
+                            newContent += '<img class="img" src="./images/empty.png" alt=""/>';
                             newContent += '</div>';
                             break;
                     }
