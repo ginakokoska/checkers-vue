@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" :href="homepagelink"> <i class="fa-solid fa-chess"></i> Checkers</a>
+      <a class="navbar-brand" :href="homepagelink"> <font-awesome-icon icon="fa-solid fa-chess" /> Checkers</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,19 +13,19 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" :href="homepagelink"> <i class="fa-solid fa-igloo"></i> Home</a>
+              <a class="nav-link" aria-current="page" :href="homepagelink"> <font-awesome-icon icon="fa-solid fa-igloo" /> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/ginakokoska/Checkers_WA"> <i class="fa-brands fa-github-alt"></i> GitHub</a>
+              <a class="nav-link" href="https://github.com/ginakokoska/Checkers_WA"> <font-awesome-icon icon="fa-brands fa-github-alt" /> GitHub</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" :href="smallBoard"><i class="fa-solid fa-chess-queen"></i> 8x8</a>
+              <a class="nav-link" :href="smallBoard"><font-awesome-icon icon="fa-regular fa-chess-king" /> 8x8</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" :href="bigBoard"><i class="fa-regular fa-chess-queen"></i> 10x10</a>
+              <a class="nav-link" :href="bigBoard"><font-awesome-icon icon="fa-solid fa-chess-queen" /> 10x10</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" :href="instructlink"> <i class="fa-solid fa-clipboard-list"></i> User Manual</a>
+              <a class="nav-link" :href="instructlink"> <font-awesome-icon icon="fa-solid fa-clipboard-list" /> User Manual</a>
             </li>
           </ul>
         </div>
