@@ -163,6 +163,9 @@ export const websocketsmixins = {
             newGame.html(newContent);
             let msg = $('#message-field');
             msg.html(this.data.game.message);
+            let player_col = $('#player-field');
+            player_col.html(this.color);
+
         },
         gotData() {
             let that = this;

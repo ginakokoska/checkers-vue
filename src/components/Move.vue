@@ -5,6 +5,7 @@
     <div style="padding:20px"></div>
     <button @click="parentMethod()" type="button" class="btn bouncy"> Enter</button>
     <p id="message-field"></p>
+    <p id="player-field"></p>
   </div>
 </template>
 
