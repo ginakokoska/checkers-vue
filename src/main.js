@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from './router/route.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.js";
+import './registerServiceWorker'
+
 
 import { faChess } from '@fortawesome/free-solid-svg-icons'
 import { faIgloo } from '@fortawesome/free-solid-svg-icons'
