@@ -47,7 +47,6 @@
 
 
 <script>
-
 //import {websocketsmixins} from "@/mixins/websocketsmixins";
 
 
