@@ -61,7 +61,6 @@ export default {
         cancelButtonText: 'Cancel',
         confirmButtonColor: "#641403",
         background: '#FFFFFF',
-        //iconHtml: '<img src="./images/frog.png"',
         imageUrl: "./images/unturned.png",
         imageWidth: 100,
         imageHeight: 100,

@@ -27,7 +27,8 @@ export default {
   mounted() {
     console.log('hi');
     $.ajax({
-      url: 'http://localhost:9000/current'
+      url: 'http://localhost:9000/current',
+      crossDomain: true,
     }).done(() => {
           this.backendOnline = true;
         }
