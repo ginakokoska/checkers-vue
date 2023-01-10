@@ -3,7 +3,8 @@
     <game-page></game-page>
   </div>
   <div v-else: class="container">
-    <p> server not connected </p>
+    <img src="../../public/images/frog-sad.gif" alt="" style="width:256px;height:256px" />
+    <p>No server connected<br>Please start backend first</p>
   </div>
 </template>
 
@@ -20,9 +21,11 @@ export default {
   data() {
     return{
       backendOnline: false,
+      backi: false,
     }
   },
   mounted() {
+    console.log('hi');
     $.ajax({
       url: 'http://localhost:9000/current'
     }).done(() => {
@@ -34,5 +37,10 @@ export default {
 </script>
 
 <style>
+
+p {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
 
 </style>

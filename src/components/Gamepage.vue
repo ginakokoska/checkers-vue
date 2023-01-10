@@ -11,6 +11,15 @@ import GameContainer from "@/components/Gamecontainer.vue";
 import $ from "jquery";
 import Move from "@/components/Move.vue";
 
+
+let path = window.location.pathname;
+let page = path.split("/").pop();
+window.onbeforeunload = function() {
+  if (page === "new8Grid" || page === "new10Grid") {
+    return 'Are you sure you want to leave this page?';
+  } return undefined;
+}
+
 export default {
   name: "Game-page",
   components: {Move, GameContainer, CheckersNavbar},
@@ -30,7 +39,8 @@ export default {
     this.connectWebSocket();
     //this.updateGameBoard();
   },
-  mixins: [websocketsmixins]
+  mixins: [websocketsmixins],
+
 }
 </script>
 
