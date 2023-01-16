@@ -1,4 +1,6 @@
 <template>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v15.0" nonce="BqPwl9n9"></script>
   <div style="padding:100px"></div>
   <h1>Welcome to Checkers</h1>
   <div style="padding:80px"></div>
@@ -35,7 +37,14 @@
       </button>
     </div>
   </div>
+
+  <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
 </template>
+
+
+
+
 
 <script>
 export default {
