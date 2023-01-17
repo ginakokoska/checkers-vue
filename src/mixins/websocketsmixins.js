@@ -10,7 +10,8 @@ export const websocketsmixins = {
             gameBoard: "",
             size: 8,
             color: "",
-            connected: false
+            connected: false,
+            hasClicked: false
         }
     },
     methods: {
@@ -116,6 +117,20 @@ export const websocketsmixins = {
             this.processCmdWS("connectPlayer", "x")
             console.log("connectPlayer")
         },
+        clicked(id) {
+            console.log("test")
+            if (this.hasClicked === true) {
+                console.log(this.from + "->" + id)
+                this.hasClicked = false
+                // return "console.log('To ' + " + id + ")"
+                return "this.processCmdWS('jsMove', 12)"
+            } else {
+                this.from = id
+                this.hasClicked = true
+                // return "console.log('From ' + " + id + ")"
+                return "this.processCmdWS('jsMove', 12)"
+            }
+        },
         updateGameBoard() {
             this.size = this.data.game.gameBoard.size;
             console.log("update")
@@ -142,15 +157,15 @@ export const websocketsmixins = {
 
                     switch (state) {
                         case "normal":
-                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/' + color + '.png" alt=""/>';
+                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/' + color + '.png" alt="" onclick="' + this.clicked(scalar) + '"/>';
                             newContent += '</div>';
                             break;
                         case "queen":
-                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/' + color + '_queen.png" alt=""/>';
+                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/' + color + '_queen.png" alt="" onclick="' + this.clicked(scalar) + '"/>';
                             newContent += '</div>';
                             break;
                         default:
-                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/empty.png" alt=""/>';
+                            newContent += '<img id="scalar' + scalar + '" class="img" src="./images/empty.png" alt="" onclick="' + this.clicked(scalar) + '"/>';
                             newContent += '</div>';
                             break;
                     }
