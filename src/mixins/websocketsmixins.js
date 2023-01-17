@@ -15,7 +15,7 @@ export const websocketsmixins = {
     },
     methods: {
         connectWebSocket() {
-            this.vueWebsocket = new WebSocket("ws://" + location.hostname + ":9000/websocket") // change location.hostname to backend ip
+            this.vueWebsocket = new WebSocket("wss://checkers.herokuapp.com/websocket") // change location.hostname to backend ip
             this.vueWebsocket.onopen = () => {
                 this.vueWebsocket.send("Connect")
             }
