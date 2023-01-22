@@ -25,7 +25,21 @@ const routes = [
         name: 'Checkers10',
         component: Checkers
     },
-
+    {
+        path: '/register-user',
+        name: 'register-user',
+        component: () => import('../components/RegisterComponent.vue')
+    },
+    {
+        path: '/signin',
+        name: 'signin',
+        component: () => import('../components/LoginComponent.vue')
+    },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('../components/DashboardComponent.vue')
+    }
 
 ]
 
