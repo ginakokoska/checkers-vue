@@ -41,7 +41,7 @@ export default {
   name: 'nav-bar',
   data() {
     return {
-      homepagelink: "/",
+      homepagelink: "/home",
       instructlink: "/instructions",
       smallBoard: "/new8Grid",
       bigBoard: "/new10Grid"

@@ -35,10 +35,10 @@ export default {
     onSubmit() {
       firebase.auth()
           .signInWithEmailAndPassword(this.user.email, this.user.password).then(() => {
-        this.$router.push('/dashboard')
+        this.$router.push('/home')
       })
           .catch((err) => {
-            console.log(err);
+            alert(err);
           });
     }
   }

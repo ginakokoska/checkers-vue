@@ -44,7 +44,7 @@ export default {
   name: 'checkers-navbar',
   data() {
     return {
-      homepagelink: "/",
+      homepagelink: "/home",
       instructlink: "/instructions"
     }
   },

@@ -48,16 +48,17 @@ export default {
               displayName: this.user.name
             })
                 .then(() => {
-                  alert('User successfully registered!')
+                  alert('User successfully registered! Please use credentials to login')
                   this.user = {
                     name: '',
                     email: '',
                     password: ''
                   }
+                  this.$router.push('/signin')
                 });
           })
           .catch((err) => {
-            console.log(err);
+            alert(err);
           });
     }
   }
