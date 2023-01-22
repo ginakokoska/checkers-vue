@@ -1,14 +1,16 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router';
 import Homepage from "@/views/Homepage.vue";
 import Instructions from "@/views/Instructions.vue";
 import Checkers from "@/views/Checkers.vue";
-
+import app from "@/App.vue";
+import { createAuthGuard } from "@auth0/auth0-vue";
 
 const routes = [
     {
         path: '/',
         name: 'Homepage',
-        component: Homepage
+        component: Homepage,
+        beforeEnter: createAuthGuard(app)
     },
     {
         path: '/instructions',
@@ -25,7 +27,6 @@ const routes = [
         name: 'Checkers10',
         component: Checkers
     },
-
 
 ]
 

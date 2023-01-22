@@ -12,7 +12,7 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
+            <li class="nav-item" >
               <a class="nav-link" aria-current="page" :href="homepagelink"> <font-awesome-icon icon="fa-solid fa-igloo" /> Home</a>
             </li>
             <li class="nav-item">
@@ -36,6 +36,7 @@
 
 
 <script>
+import { useAuth0 } from '@auth0/auth0-vue';
 
 export default {
   name: 'nav-bar',
@@ -45,6 +46,23 @@ export default {
       instructlink: "/instructions",
       smallBoard: "/new8Grid",
       bigBoard: "/new10Grid"
+    }
+  },
+  setup() {
+    const auth0 = useAuth0();
+
+    return {
+      isAuthenticated: auth0.isAuthenticated,
+      isLoading: auth0.isLoading,
+      user: auth0.user,
+      login() {
+        auth0.loginWithRedirect();
+      },
+      logout() {
+        auth0.logout({
+          returnTo: window.location.origin
+        });
+      }
     }
   },
   components: {}
