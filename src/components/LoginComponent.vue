@@ -22,19 +22,19 @@
       <p id="padding"> </p>
     </div>
     <!-- Pills content -->
-    <div class="tab-content mb2">
+    <div class="tab-content mb4">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
         <form @submit.prevent="onSubmit">
 
 
           <!-- Email input -->
-          <div class="form-outline mb-2">
+          <div class="form-outline mb-4">
             <input type="email" id="loginName" class="form-control" v-model="user.email" placeholder="maxmuster@mail.com"/>
             <label class="form-label" for="loginName"></label>
           </div>
 
           <!-- Password input -->
-          <div class="form-outline mb-2">
+          <div class="form-outline mb-4">
             <input type="password" id="loginPassword" class="form-control" v-model="user.password" placeholder="Password"/>
             <label class="form-label" for="loginPassword"></label>
           </div>
@@ -155,7 +155,7 @@ export default {
 }
 
 .form-outline{
-  padding: 0 30%;
+  padding: 0 0%;
 }
 
 
