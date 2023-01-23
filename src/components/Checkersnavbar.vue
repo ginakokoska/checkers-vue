@@ -89,7 +89,7 @@ export default {
 
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @whitegrey: #f1f1f1;
 @darkred: #641403;
 

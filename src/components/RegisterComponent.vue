@@ -1,29 +1,103 @@
 <template>
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-8 mt-5">
+  <div id="container">
+    <p id="padding"> </p>
+    <img src="../../public/img/icons/msapplication-icon-144x144.png">
+    <p id="padding"> </p>
+
+  <!-- Pills navs -->
+  <ul class="nav nav-pills nav-justified mb-4" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link " id="reg-login" data-mdb-toggle="pill" :href="loginLink" role="tab"
+         aria-controls="pills-login" aria-selected="true">Login</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="tab-register"  data-mdb-toggle="pill" :href="registerLink" role="tab"
+         aria-controls="pills-register" aria-selected="false" >Register</a>
+    </li>
+  </ul>
+  <!-- Pills navs -->
+  <div>
+    <p id="padding"> </p>
+  </div>
+  <!-- Pills content -->
+  <div class="tab-content mb4">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
       <form @submit.prevent="onSubmit">
-        <div class="form-group mb-3">
-          <label><strong>Name</strong></label>
-          <input type="text" class="form-control form-control-lg" v-model="user.name" />
+
+      <!-- Name input -->
+        <div class="form-outline mb-2">
+          <input type="name" id="userName" class="form-control" v-model="user.name" placeholder="Max Muster" />
+          <label class="form-label" for="loginName"></label>
         </div>
 
-        <div class="form-group mb-3">
-          <label><strong>Email</strong></label>
-          <input type="email" class="form-control form-control-lg" v-model="user.email" />
+        <!-- Email input -->
+        <div class="form-outline mb-2">
+          <input type="email" id="loginName" class="form-control" v-model="user.email" placeholder="maxmuster@mail.com"/>
+          <label class="form-label" for="loginName"></label>
         </div>
 
-        <div class="form-group mb-3">
-          <label><strong>Password</strong></label>
-          <input type="password" class="form-control form-control-lg" v-model="user.password" />
+        <!-- Password input -->
+        <div class="form-outline mb-2">
+          <input type="password" id="loginPassword" class="form-control" v-model="user.password" placeholder="Password"/>
+          <label class="form-label" for="loginPassword"></label>
         </div>
 
-        <div class="d-grid">
-          <input type="submit" class="btn btn-primary btn-lg btn-block" value="Register User"/>
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Submit"/>
+      </form>
+    </div>
+    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+      <form>
+
+
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="registerName" class="form-control" />
+          <label class="form-label" for="registerName">Name</label>
         </div>
+
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="registerUsername" class="form-control" />
+          <label class="form-label" for="registerUsername">Username</label>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="registerEmail" class="form-control" />
+          <label class="form-label" for="registerEmail">Email</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="registerPassword" class="form-control" />
+          <label class="form-label" for="registerPassword">Password</label>
+        </div>
+
+        <!-- Repeat Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="registerRepeatPassword" class="form-control" />
+          <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                 aria-describedby="registerCheckHelpText" />
+          <label class="form-check-label" for="registerCheck">
+            I have read and agree to the terms
+          </label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
       </form>
     </div>
   </div>
+  </div>
+  <!-- Pills content -->
 </template>
+
 
 
 <script>
@@ -36,7 +110,9 @@ export default {
         name: '',
         email: '',
         password: ''
-      }
+      },
+      loginLink: '/signin',
+      registerLink: '/register-user'
     };
   },
   methods: {
@@ -63,4 +139,51 @@ export default {
     }
   }
 };
+
+
 </script>
+
+<style lang="less">
+@whitegrey: #f1f1f1;
+@darkred: #641403;
+@darkgrey:#333;
+
+.btn {
+  background-color: @darkred;
+  color: @whitegrey;
+  font-weight: bold;
+}
+
+.nav {
+  padding: 0 30%;
+}
+
+.form-outline {
+  padding: 0 30%;
+}
+
+#tab-register {
+  background-color: @darkred;
+  color: @whitegrey;
+  border: 1px solid @darkred;
+  font-weight: bold;
+}
+
+#reg-login {
+  color: black;
+  border: 1px solid @darkred;
+  font-weight: bold;
+}
+
+#padding {
+  padding: 0.5% 0;
+}
+
+#container {
+  border: 3px solid @darkred;
+  padding: 0 10%;
+  border-radius: 5px;
+}
+
+
+</style>

@@ -2,14 +2,14 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Homepage from "@/views/Homepage.vue";
 import Instructions from "@/views/Instructions.vue";
 import Checkers from "@/views/Checkers.vue";
-import LoginpageComp from "@/components/Loginpage-comp.vue";
+import LoginComponent from "@/components/LoginComponent.vue";
 
 
 const routes = [
     {
         path: '/',
         name: 'Login',
-        component: LoginpageComp
+        component: LoginComponent
     },
     {
         path: '/home',

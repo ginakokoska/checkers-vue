@@ -1,8 +1,13 @@
 <template>
-  <router-view></router-view>
+    <div class="container">
+      <router-view></router-view>
+  </div>
 </template>
 
 <script>
+
+
+
 
 export default {
   name: 'App',
@@ -19,4 +24,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.nav-link {
+  border: #2c3e50;
+}
 </style>
+
+
